@@ -223,6 +223,21 @@
     request "^2.88.0"
     ws "^6.0.0"
 
+"@ngrx/core@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/core/-/core-1.2.0.tgz#882b46abafa2e0e6d887cb71a1b2c2fa3e6d0dc6"
+  integrity sha1-iCtGq6+i4ObYh8txobLC+j5tDcY=
+
+"@ngrx/effects@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/effects/-/effects-7.2.0.tgz#8aa318ac247d8e9a428625562a124a6463e3ee2f"
+  integrity sha512-vymKSoubYlUWGbiclPK0N/LwB409sB9atjSTQRy2EisZfFtQ2tCDqmk4JGgDy/gV9SqZWrwPSy1xXsLqYnyN3g==
+
+"@ngrx/store@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-7.2.0.tgz#b22200fd48b721afe0e5cc9eec92f3dc31c078b1"
+  integrity sha512-E9c0cDot0HeE0mXyeqw18SwmJ2+eKnA5mMMfwvoskpMInCYGI2pq1i6/lCVQ2wrEHSH+KvObK4PQbepcA9vP+w==
+
 "@ngtools/webpack@7.3.0":
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-7.3.0.tgz#ed6bfb0c7c02db2fdfaf0fdecd4c2b1bb80af7a5"

@@ -31,7 +31,7 @@ namespace SignalRNetCorePrototype.Hubs
                 throw new Exception("Cannot join a group that doesn't exist.");
 
             await Groups.AddToGroupAsync(Context.ConnectionId, groupname);
-            await Clients.Group(groupname).SendAsync("Join Group", groupname);
+            await Clients.Group(groupname).SendAsync("JoinGroup", groupname);
 
             var history = _repository.GetAllNewsItems(groupname);
             await Clients.Client(Context.ConnectionId).SendAsync("History", history);
@@ -42,7 +42,7 @@ namespace SignalRNetCorePrototype.Hubs
             if (!_repository.GroupExists(groupname))
                 throw new Exception("Cannot leave a group that doesn't exist.");
 
-            await Clients.Group(groupname).SendAsync("Leave Group", groupname);
+            await Clients.Group(groupname).SendAsync("LeaveGroup", groupname);
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, groupname);
         }
     }

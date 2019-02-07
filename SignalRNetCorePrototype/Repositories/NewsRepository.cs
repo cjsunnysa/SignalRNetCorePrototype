@@ -13,13 +13,13 @@ namespace SignalRNetCorePrototype.Repositories
         {
             _newsStore.Add("IT", new List<NewsItem>(new[]
             {
-                new NewsItem (DateTime.Now, "Scantily Clad", "I.O.T to become sentient 2020", "blah blah blah blah blah blah blah"),
-                new NewsItem (DateTime.Now, "Terrified Terry", "Quantam computer calculates the world is not round", "blah blah blah blah blah blah blah")
+                new NewsItem (DateTime.Now, "Scantily Clad", "I.O.T to become sentient 2020", "blah blah blah blah blah blah blah", "IT"),
+                new NewsItem (DateTime.Now, "Terrified Terry", "Quantam computer calculates the world is not round", "blah blah blah blah blah blah blah", "IT")
             }));
             _newsStore.Add("News", new List<NewsItem>(new[]
             {
-                new NewsItem (DateTime.Now, "Jeering Jerry", "Donald Trump Assasinated, Finally!", "blah blah blah blah blah blah blah"),
-                new NewsItem (DateTime.Now, "Precocius Petunia", "Dollar rallies 130% overnight following assasination ", "blah blah blah blah blah blah blah")
+                new NewsItem (DateTime.Now, "Jeering Jerry", "Donald Trump Assasinated, Finally!", "blah blah blah blah blah blah blah", "News"),
+                new NewsItem (DateTime.Now, "Precocius Petunia", "Dollar rallies 130% overnight following assasination ", "blah blah blah blah blah blah blah", "News")
             }));
         }
 
@@ -42,6 +42,11 @@ namespace SignalRNetCorePrototype.Repositories
                 throw new Exception($"Group {groupName} does not exits.");
 
             return _newsStore[groupName].OrderByDescending(i => i.Date);
+        }
+
+        public IEnumerable<string> GetAllGroups()
+        {
+            return _newsStore.Keys;
         }
     }
 }

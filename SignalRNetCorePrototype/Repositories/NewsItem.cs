@@ -12,13 +12,13 @@ namespace SignalRNetCorePrototype.Repositories
 
         }
 
-        public NewsItem(DateTime date, string author, string header, string article)
+        public NewsItem(DateTime date, string author, string header, string article, string newsGroup)
         {
             Date = date;
             Author = author;
             Header = header;
             Article = article;
-            NewsGroup = null;
+            NewsGroup = newsGroup;
         }
 
         public DateTime Date { get; set; }

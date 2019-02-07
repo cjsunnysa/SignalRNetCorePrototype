@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { HubConnection } from '@aspnet/signalr';
 import * as signalR from '@aspnet/signalr';
 
@@ -12,11 +12,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     message = '';
     messages: string[] = [];
 
-    constructor() {
+    constructor(@Inject('BASE_URL') private _baseUrl: string) {
 
     }
 
-    private receiveLoopyHub = (data: any) => {
+    private receivedFromHub = (data: any) => {
         const received = `Received ${data}`;
         this.messages.push(received);
     }
@@ -33,16 +33,16 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this._hubConnection = new signalR.HubConnectionBuilder()
-            .withUrl('https://localhost:44339/basichub')
+            .withUrl(this._baseUrl + '/basichub')
             .configureLogging(signalR.LogLevel.Information)
             .build();
 
         this._hubConnection.start().catch(err => console.error(err.toString()));
 
-        this._hubConnection.on('Send', this.receiveLoopyHub);
+        this._hubConnection.on('Send', this.receivedFromHub);
     }
 
     ngOnDestroy(): void {
-        this._hubConnection.off('Send', this.receiveLoopyHub);
+        this._hubConnection.off('Send', this.receivedFromHub);
     }
 }
